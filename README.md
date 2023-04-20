@@ -1,2 +1,2 @@
 # ShelfSort
-Sorting Algorthiam
+I have created this simple Sorting Algorithm.
