@@ -54,7 +54,7 @@ public class ShelfSort {
     }
 
     static void sort(int arr[], int index) {
-        int max2[] = new int[15], tempdup[] = new int[index], dup = 0,xx=0;
+        int max2[] = new int[15], tempdup[] = new int[index], dup = 0,insertionSort=0;
         int[][] arrr = new int[11][index];
         arrr[1][0]=-1;
         tempdup[0]=2147483590;
@@ -67,16 +67,16 @@ public class ShelfSort {
             }
             if (arr[i] == arrr[1][arr[i]]) {
                 dup++;
-                xx=dup;
+                insertionSort=dup;
                 
                 while (true) {     
-                   if(xx!=0&&arr[i]<tempdup[xx-1]){
-                        tempdup[xx]=tempdup[xx-1];
+                   if(insertionSort!=0&&arr[i]<tempdup[insertionSort-1]){
+                        tempdup[insertionSort]=tempdup[insertionSort-1];
                         
-                        xx--;
+                        insertionSort--;
                     }else{
                        
-                        tempdup[xx]=arr[i];
+                        tempdup[insertionSort]=arr[i];
                         break;
                     }
                 
@@ -89,15 +89,15 @@ public class ShelfSort {
                     String y = "" + x + c.substring(1);
                     if (arr[i] == arrr[c.length()][Integer.parseInt(y)]) {
                         dup++;
-                        xx=dup;
+                        insertionSort=dup;
                         
                 
                 while (true) {                    
-                    if(xx!=0&&arr[i]<tempdup[xx-1]){
-                        tempdup[xx]=tempdup[xx-1];
-                        xx--;
+                    if(insertionSort!=0&&arr[i]<tempdup[insertionSort-1]){
+                        tempdup[insertionSort]=tempdup[insertionSort-1];
+                        insertionSort--;
                     }else{
-                        tempdup[xx]=arr[i];
+                        tempdup[insertionSort]=arr[i];
                         break;
                     }
                 
@@ -126,7 +126,7 @@ public class ShelfSort {
 
     // My algorthim
     public static void main(String args[]) {
-        int[] arr = {3,4,66,3,11,23,4421,2,11,2};//new int[29999999];//max 29999999
+        int[] arr = {3,4,3,11,23,4421,2,11,2};//new int[29999999];//max 29999999
 
                 sort(arr, 29999999);
                 
@@ -135,6 +135,8 @@ public class ShelfSort {
                 
         }
     }
+    //this code is belong to R-Alothaim
+    //https://github.com/R-Alothaim/ShelfSort
 
 
 
