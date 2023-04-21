@@ -51,7 +51,7 @@ public class ShelfSort {
     }
 
     static void sort(int arr[], int index) {
-        int lengthCounter[] = new int[15], tempdup[] = new int[index], dup = 0,insertionSort=0;
+        int lengthCounter[] = new int[15], tempdup[] = new int[index], DupCounter = 0,insertionSort=0;
         int[][] DimonsunalArray = new int[11][index];
         DimonsunalArray[1][0]=-1;
         tempdup[0]=2147483590;
@@ -63,8 +63,8 @@ public class ShelfSort {
                 lengthCounter[c.length()] = lengthCounter[c.length()] + 1;
             }
             if (arr[i] == DimonsunalArray[1][arr[i]]) {
-                dup++;
-                insertionSort=dup;
+                DupCounter++;
+                insertionSort=DupCounter;
                 
                 while (true) {     
                    if(insertionSort!=0&&arr[i]<tempdup[insertionSort-1]){
@@ -85,8 +85,8 @@ public class ShelfSort {
                     int x = Character.getNumericValue(c.charAt(0) - 1);
                     String y = "" + x + c.substring(1);
                     if (arr[i] == DimonsunalArray[c.length()][Integer.parseInt(y)]) {
-                        dup++;
-                        insertionSort=dup;
+                        DupCounter++;
+                        insertionSort=DupCounter;
                         
                 
                 while (true) {                    
@@ -104,9 +104,9 @@ public class ShelfSort {
 
                     }
                 }}}
-        int duplicated[] = new int[dup];
-        if (dup >= 1) {
-            System.arraycopy(tempdup, 0, duplicated, 0, dup);
+        int duplicated[] = new int[DupCounter];
+        if (DupCounter >= 1) {
+            System.arraycopy(tempdup, 0, duplicated, 0, DupCounter);
         /*            duplicated(duplicated);*/        }
         merge(DimonsunalArray, arr, lengthCounter, duplicated);
     }
